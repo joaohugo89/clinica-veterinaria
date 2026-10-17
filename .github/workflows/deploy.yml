@@ -29,6 +29,11 @@ jobs:
 
       - run: npm ci
 
+      # Liga o Pages no repositório (se ainda não estiver ligado) e expõe a base_path
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       # O site fica em https://<usuario>.github.io/<repo>/, então a base do Vite
       # precisa ser /<repo>/. O nome vem do próprio repositório.
       - run: npm run build
