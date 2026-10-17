@@ -1,0 +1,34 @@
+/* ======================= DIVISORES EM ONDA =======================
+   Marcação gerada por <Wave />. Cada camada desliza -1200px (a largura
+   de um tile), voltando exatamente ao ponto inicial = loop sem emenda.
+   ================================================================= */
+.wave {
+  position: relative;
+  display: block;
+  line-height: 0;
+  font-size: 0;
+  width: 100%;
+  pointer-events: none;
+  /* cobre o arredondamento de sub-pixel do SVG esticado — sem isto sobra
+     uma faixa de 1px da cor da seção anterior embaixo da onda */
+  margin-bottom: -1px;
+}
+.wave__svg { display: block; width: 100%; height: var(--wave-height); }
+@media (max-width: 767px) { .wave__svg { height: var(--wave-height-sm); } }
+
+.wave__layer { animation: wave-slide var(--_spd, 20s) linear infinite; }
+.wave__layer--back  { --_spd: var(--wave-speed-back);  opacity: .35; }
+.wave__layer--mid   { --_spd: var(--wave-speed-mid);   opacity: .6; animation-direction: reverse; }
+.wave__layer--front { --_spd: var(--wave-speed-front); opacity: 1; }
+
+/* O "bob" fica num <g> próprio: slide e bob animam transform e um
+   sobrescreveria o outro se estivessem no mesmo elemento. */
+.wave__bob      { animation: wave-bob var(--wave-bob) ease-in-out infinite; }
+.wave__bob--alt { animation: wave-bob calc(var(--wave-bob) * .75) ease-in-out infinite reverse; }
+
+@keyframes wave-slide { from { transform: translateX(0); } to { transform: translateX(-1200px); } }
+@keyframes wave-bob   { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .wave__layer, .wave__bob, .wave__bob--alt { animation: none !important; }
+}

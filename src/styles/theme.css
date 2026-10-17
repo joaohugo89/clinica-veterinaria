@@ -1,0 +1,61 @@
+/* ==========================================================================
+   VitaPet — Tokens de Design (ÚNICO LUGAR PARA TROCAR AS CORES)
+
+   Cada cor é declarada DUAS vezes:
+     --c-*-rgb → só os canais ("140 74 38"), usados pelo tailwind.config.ts
+                 para que as opacidades (bg-brand/10, text-onBrand/70) funcionem;
+     --c-*     → a cor pronta, usada em `style={{ backgroundColor: … }}` e nas ondas.
+   Para trocar a paleta, altere apenas os valores *-rgb.
+   ========================================================================== */
+:root {
+  /* --- Marrom Terroso / Conhaque --- */
+  --c-brand-rgb:      140 74 38;    /* #8C4A26 */
+  --c-brand-deep-rgb: 122 62 29;    /* #7A3E1D */
+  --c-brand-dark-rgb:  67 32 15;    /* #43200F */
+
+  /* --- Areia / Off-white cremoso --- */
+  --c-sand-rgb:   250 246 240;      /* #FAF6F0 */
+  --c-sand-2-rgb: 245 235 225;      /* #F5EBE1 */
+
+  /* --- Dourado / Amarelo quente --- */
+  --c-gold-rgb:      229 161 26;    /* #E5A11A */
+  --c-gold-soft-rgb: 243 199 106;   /* #F3C76A */
+
+  /* --- Texto --- */
+  --c-ink-rgb:      46 27 16;       /* #2E1B10 */
+  --c-ink-soft-rgb: 107 84 69;      /* #6B5445 */
+  --c-on-brand-rgb: 251 242 232;    /* #FBF2E8 */
+
+  /* Cores prontas (derivadas — não edite) */
+  --c-brand:      rgb(var(--c-brand-rgb));
+  --c-brand-deep: rgb(var(--c-brand-deep-rgb));
+  --c-brand-dark: rgb(var(--c-brand-dark-rgb));
+  --c-sand:       rgb(var(--c-sand-rgb));
+  --c-sand-2:     rgb(var(--c-sand-2-rgb));
+  --c-gold:       rgb(var(--c-gold-rgb));
+  --c-gold-soft:  rgb(var(--c-gold-soft-rgb));
+  --c-ink:        rgb(var(--c-ink-rgb));
+  --c-ink-soft:   rgb(var(--c-ink-soft-rgb));
+  --c-on-brand:   rgb(var(--c-on-brand-rgb));
+
+  /* --- Formas --- */
+  --radius-card: 24px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 10px 30px -12px rgba(67, 32, 15, .25);
+  --shadow-lift: 0 22px 50px -20px rgba(67, 32, 15, .35);
+
+  /* --- Ritmo de espaçamento entre seções (um valor para a página inteira) --- */
+  --space-section: 96px;
+
+  /* --- Velocidade e tamanho das ondas (ver README) --- */
+  --wave-speed-back:  26s;
+  --wave-speed-mid:   18s;
+  --wave-speed-front: 12s;
+  --wave-bob:          7s;
+  --wave-height:     110px;
+  --wave-height-sm:   64px;
+}
+
+@media (min-width: 1024px) {
+  :root { --space-section: 128px; }
+}
