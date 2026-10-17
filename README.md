@@ -224,3 +224,25 @@ aparecem estáticos (`useReducedMotion` + regra no `wave.css`).
 - [ ] Revisar preços e textos dos serviços em `site.services.items`.
 - [ ] Adicionar Open Graph no `index.html` e o analytics/pixel do cliente.
 - [ ] `npm run build` e publicar a pasta `dist/` (Vercel, Netlify ou hospedagem estática).
+
+---
+
+## 8. Deploy (GitHub Pages)
+
+O repositório já traz `.github/workflows/deploy.yml`: a cada push na `main` ele instala,
+builda e publica a pasta `dist/` no GitHub Pages.
+
+**Configuração única, no repositório:**
+Settings → Pages → *Build and deployment* → **Source: GitHub Actions**.
+(Se ficar em "Deploy from a branch", o Pages serve os arquivos crus do repositório e a
+página aparece em branco, porque `index.html` aponta para `/src/main.tsx`.)
+
+O site fica em `https://<usuario>.github.io/<nome-do-repo>/`. O workflow define
+`VITE_BASE=/<nome-do-repo>/`, e `src/lib/asset.ts` aplica essa base nas imagens de
+`public/` — por isso nada quebra no subdiretório.
+
+**Domínio próprio:** adicione o domínio em Settings → Pages → Custom domain e, no
+workflow, troque `VITE_BASE` por `/`.
+
+**Outras hospedagens:** em Vercel/Netlify basta apontar para o repositório
+(build `npm run build`, saída `dist`) — sem `VITE_BASE`, porque o site fica na raiz.
