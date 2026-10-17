@@ -13,6 +13,7 @@ import { Wave } from '../components/Wave'
 import { CheckIcon, PawIcon, WhatsAppIcon, serviceIcons } from '../components/icons'
 import { site } from '../data/site'
 import { whatsappLink } from '../lib/whatsapp'
+import { asset } from '../lib/asset'
 
 const { hero, testimonials } = site
 
@@ -242,7 +243,7 @@ export function Hero() {
           />
 
           <motion.img
-            src={hero.photo}
+            src={asset(hero.photo)}
             alt={hero.photoAlt}
             initial={reduced ? false : { opacity: 0, scale: 0.92, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -385,7 +386,7 @@ export function Hero() {
                     {testimonials.items.map((item) => (
                       <img
                         key={item.name}
-                        src={item.photo}
+                        src={asset(item.photo)}
                         alt=""
                         className="h-8 w-8 rounded-full border-2 border-brand object-cover"
                         loading="lazy"
@@ -427,7 +428,7 @@ export function Hero() {
             className="absolute bottom-[4%] left-1/2 h-7 w-[46%] -translate-x-1/2 rounded-[50%] bg-brandDark/45 blur-lg"
           />
           <motion.img
-            src={hero.photo}
+            src={asset(hero.photo)}
             alt=""
             initial={reduced ? false : { opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}

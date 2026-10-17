@@ -2,6 +2,7 @@ import { Counter } from '../components/Counter'
 import { Reveal, RevealItem } from '../components/Reveal'
 import { Wave } from '../components/Wave'
 import { site } from '../data/site'
+import { asset } from '../lib/asset'
 
 const { testimonials } = site
 
@@ -28,7 +29,7 @@ export function Testimonials() {
               <div className="text-lg tracking-wide text-gold">★★★★★</div>
               <blockquote className="mt-4 text-sm leading-relaxed text-inkSoft">“{item.quote}”</blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
-                <img src={item.photo} alt="" className="h-11 w-11 rounded-full object-cover" loading="lazy" />
+                <img src={asset(item.photo)} alt="" className="h-11 w-11 rounded-full object-cover" loading="lazy" />
                 <div>
                   <p className="text-sm font-semibold">{item.name}</p>
                   <p className="text-xs text-inkSoft">{item.role}</p>

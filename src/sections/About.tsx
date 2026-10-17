@@ -1,6 +1,7 @@
 import { Reveal, RevealItem } from '../components/Reveal'
 import { Wave } from '../components/Wave'
 import { site } from '../data/site'
+import { asset } from '../lib/asset'
 
 const { about } = site
 
@@ -12,7 +13,7 @@ export function About() {
           {/* Foto */}
           <Reveal direction="left" className="relative order-2 lg:order-1">
             <img
-              src={about.photo}
+              src={asset(about.photo)}
               alt={about.photoAlt}
               className="aspect-[5/4] w-full rounded-[32px] object-cover shadow-lift"
               loading="lazy"
